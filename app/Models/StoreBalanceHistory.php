@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use App\Traits\UUID;
 use Illuminate\Database\Eloquent\Model;
 
 class StoreBalanceHistory extends Model
 {
-    use UUID;
 
     protected $fillable = [
         'store_balance_id',

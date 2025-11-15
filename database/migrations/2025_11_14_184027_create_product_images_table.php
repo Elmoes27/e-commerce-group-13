@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('product_images', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->uuid('product_id');
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->id()->primary();
+            $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
             $table->string('image');
             $table->boolean('is_thumbnail')->default(false);
             $table->timestamps();

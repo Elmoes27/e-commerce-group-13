@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('store_balances', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->uuid('store_id');
-            $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
+            $table->id()->primary();
+            $table->foreignId('store_id')->constrained()->cascadeOnDelete();
             $table->decimal('balance',26, 2);
             $table->timestamps();
         });

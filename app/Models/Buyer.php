@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use App\Traits\UUID;
 use Illuminate\Database\Eloquent\Model;
 
 class Buyer extends Model
 {
-    use UUID;
 
     protected $fillable = [
         'user_id',

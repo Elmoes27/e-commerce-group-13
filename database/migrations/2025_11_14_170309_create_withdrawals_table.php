@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('withdrawals', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->uuid('store_balance_id');
-            $table->foreign('store_balance_id')->references('id')->on('store_balances')->onDelete('cascade');
+            $table->id()->primary();
+            $table->foreignId('store_balance_id')->constrained()->cascadeOnDelete();
             $table->decimal('amount', 26, 2);
             $table->string('bank_account_name');
             $table->string('bank_account_number');

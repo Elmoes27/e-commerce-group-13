@@ -14,9 +14,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('product_categories', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->uuid('parent_id')->nullable();
-            $table->foreign('parent_id')->references('id')->on('product_categories')->onDelete('cascade');
+            $table->id()->primary();
+            $table->foreignId('parent_id')->nullable()->constrained('product_categories')->cascadeOnDelete();
             $table->string('image')->nullable();
             $table->string('name');
             $table->string('slug')->unique();
